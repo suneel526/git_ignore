@@ -1,0 +1,18 @@
+docker swarm init --advertise-addr=(private ip of master)
+
+copy the swarm command from master and paste it on worker nodes
+
+if you want to know the number of workers then 
+
+*-> docker node ls
+
+To run a service using a image file on swarm network
+ 
+docker service create --name apache --replicas 5 -d -p 8081:8080 suneel0526/tomimg:1 (here 1 is the tagname of the image)
+
+to know which service is running
+docker service ls
+
+To check replications are working file 
+
+docker rm -f $(docker ps -a -q)
